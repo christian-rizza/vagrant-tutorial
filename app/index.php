@@ -22,5 +22,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+?>
 
-phpinfo();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/test.css" />
+    <title>Example - Preprocessare CSS con Gulp e Sass</title>
+</head>
+<body>
+    <div>
+        <p class="site-title"><a href="http://www.crizza.com/">Crizza.com</a></p>
+        <p class="site-description">Un altro blog di programmazione…</p>
+    </div>
+</body>
+</html>
