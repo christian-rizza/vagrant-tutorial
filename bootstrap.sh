@@ -47,5 +47,11 @@ printf "%$(tput cols)s\n"|tr " " "="
 apt-get install -y git
 
 printf "%$(tput cols)s\n"|tr " " "="
+echo "Running Tutorial Configuration"
+printf "%$(tput cols)s\n"|tr " " "="
+
+bash /var/www/html/bootstrap-tutorial.sh
+
+printf "%$(tput cols)s\n"|tr " " "="
 echo "Provisioning completed"
 printf "%$(tput cols)s\n"|tr " " "="

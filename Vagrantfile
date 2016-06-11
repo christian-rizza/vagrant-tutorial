@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
  
   # Provider resources
   config.vm.provider "virtualbox" do |v|
-    v.name = "devbox.crizza.dev"
+    v.name = "tutorial.crizza.dev"
     v.memory = 512
     v.cpus = 4
   end
@@ -21,7 +21,7 @@ Vagrant.configure(2) do |config|
   # Networking
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
-  config.vm.hostname = 'devbox.crizza.dev'
+  config.vm.hostname = 'tutorial.crizza.dev'
   config.vm.network :private_network, ip: '192.168.99.12'
 
   # Shared folder
