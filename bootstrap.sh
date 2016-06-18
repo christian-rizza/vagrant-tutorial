@@ -5,29 +5,22 @@ sed -i '/^#.*force_color_prompt=yes/s/^#//' ./.bashrc
 echo "cd /var/www/html/" >> ./.bashrc
 
 printf "%$(tput cols)s\n"|tr " " "="
-echo "Starting provisioning (Update list packages)"
+echo "Starting provisioning"
 printf "%$(tput cols)s\n"|tr " " "="
-apt-get update
+echo "Updating package list..."
+apt-get update  > /dev/null
 
-printf "%$(tput cols)s\n"|tr " " "="
-echo "Installing Apache and its modules"
-printf "%$(tput cols)s\n"|tr " " "="
-apt-get install -y apache2
-apt-get install -y php5
-apt-get install -y php5-xdebug
+echo "Installing Apache..."
+apt-get install -y apache2  > /dev/null
+echo "Installing Apache modules..."
+apt-get install -y php5 > /dev/null
+apt-get install -y php5-xdebug > /dev/null
+echo "Installing MySql..."
+sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password vagrant'  > /dev/null
+sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password vagrant'  > /dev/null
+sudo apt-get -y install mysql-server libapache2-mod-auth-mysql php5-mysql  > /dev/null
 
-
-printf "%$(tput cols)s\n"|tr " " "="
-echo "Installing MySql"
-printf "%$(tput cols)s\n"|tr " " "="
-sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password password vagrant'
-sudo debconf-set-selections <<< 'mysql-server-5.5 mysql-server/root_password_again password vagrant'
-sudo apt-get -y install mysql-server libapache2-mod-auth-mysql php5-mysql
-
-
-printf "%$(tput cols)s\n"|tr " " "="
-echo "Configuring Apache for Vagrant"
-printf "%$(tput cols)s\n"|tr " " "="
+echo "Configuring Apache for Vagrant..."
 if ! [ -L /var/www ]; then
   rm -rf /var/www/*
   ln -fs /vagrant /var/www/html
@@ -38,18 +31,12 @@ a2enmod rewrite
 echo "zend_extension=xdebug.so">/etc/php5/mods-available/xdebug.ini
 echo "xdebug.remote_enable = on">>/etc/php5/mods-available/xdebug.ini
 echo "xdebug.remote_connect_back = on">>/etc/php5/mods-available/xdebug.ini
+service apache2 restart  > /dev/null
 
-service apache2 restart
+echo "Installing Git and dev tools..."
+apt-get install -y git  > /dev/null
 
-printf "%$(tput cols)s\n"|tr " " "="
-echo "Installing Git and dev tools"
-printf "%$(tput cols)s\n"|tr " " "="
-apt-get install -y git
-
-printf "%$(tput cols)s\n"|tr " " "="
-echo "Running Tutorial Configuration"
-printf "%$(tput cols)s\n"|tr " " "="
-
+echo "Running Tutorial Configuration..."
 bash /var/www/html/bootstrap-tutorial.sh
 
 printf "%$(tput cols)s\n"|tr " " "="
