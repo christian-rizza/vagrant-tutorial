@@ -14,7 +14,7 @@ Vagrant.configure(2) do |config|
   # Provider resources
   config.vm.provider "virtualbox" do |v|
     v.name = "tutorial.crizza.dev"
-    v.memory = 512
+    v.memory = 2048
     v.cpus = 4
   end
  
