@@ -10,4 +10,4 @@ npm install --global gulp-cli > /dev/null 2>&1
 
 echo "Install Composer Globally..."
 curl -s https://getcomposer.org/installer | php  > /dev/null 2>&1
-mv composer.phar /usr/local/bin/compose  > /dev/null 2>&1
+mv composer.phar /usr/local/bin/composer  > /dev/null 2>&1
