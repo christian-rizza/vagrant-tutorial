@@ -6,3 +6,5 @@
 
 ### Node
 node_modules/
+
+/vendor/

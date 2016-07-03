@@ -1,0 +1,16 @@
+{
+    "name": "crizza/vagrant-tutorial",
+    "description": "A tutorial",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christian Rizza",
+            "email": "christian@crizza.com"
+        }
+    ],
+    "autoload" : {
+        "classmap" : [
+            "app/libraries"
+        ]
+    }
+}
