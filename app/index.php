@@ -22,6 +22,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+require 'App.php'
 ?>
 
 <!DOCTYPE html>
@@ -29,12 +31,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/test.css" />
+    <link rel="stylesheet" href="css/tutorial.css" />
     <title>Example - Preprocessare CSS con Gulp e Sass</title>
 </head>
 <body>
     <div>
         <p class="site-title"><a href="http://www.crizza.com/">Crizza.com</a></p>
         <p class="site-description">Un altro blog di programmazione…</p>
+        <p class="ouput">
+            <?php echo App::getOutput(); ?>
+        </p>
     </div>
 </body>
 </html>

@@ -1,0 +1,10 @@
+body {
+    overflow: auto;
+    background-repeat: repeat-y;
+}
+
+body div {
+    padding-top: 20px;
+    height:auto;
+    min-height: 100%;
+}

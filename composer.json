@@ -1,6 +1,6 @@
 {
     "name": "crizza/vagrant-tutorial",
-    "description": "A tutorial",
+    "description": "A simple tutorial about Composer",
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +10,7 @@
     ],
     "autoload" : {
         "classmap" : [
-            "app/libraries"
+            "app/classes"
         ]
     }
 }
