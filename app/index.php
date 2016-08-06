@@ -29,7 +29,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/test.css" />
-    <title>Example - Preprocessare CSS con Gulp e Sass</title>
+    <title>Tutorial Environment</title>
 </head>
 <body>
     <div>
