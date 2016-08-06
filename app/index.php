@@ -22,19 +22,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/test.css" />
-    <title>Tutorial Environment</title>
-</head>
-<body>
-    <div>
-        <p class="site-title"><a href="http://www.crizza.com/">Crizza.com</a></p>
-        <p class="site-description">Un altro blog di programmazione…</p>
-    </div>
-</body>
-</html>
+use Slim\App;
+use Slim\Http\Request;
+use Slim\Http\Response;
+use Slim\Views\Twig;
+use Slim\Views\TwigExtension;
+
+require '../vendor/autoload.php';
+
+//Create App
+$app = new App();
+
+//Get a container
+$container = $app->getContainer();
+
+// Register component on container
+$container['view'] = function ($container) {
+    $view = new Twig('templates');
+    $view->addExtension(new TwigExtension($container['router'], $container['request']->getUri()));
+
+    return $view;
+};
+
+$app->get('/', function (Request $request, Response $response, $args) {
+
+    return $this->view->render($response, 'index.html', [
+        'name' => $args['name']
+    ]);
+});
+$app->run();
+
+?>
