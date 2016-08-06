@@ -32,7 +32,7 @@ require 'App.php'
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/test.css" />
     <link rel="stylesheet" href="css/tutorial.css" />
-    <title>Example - Preprocessare CSS con Gulp e Sass</title>
+    <title>Tutorial Environment</title>
 </head>
 <body>
     <div>
